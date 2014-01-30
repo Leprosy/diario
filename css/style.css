@@ -105,7 +105,7 @@ h1 {
 }
 
 #normal article:last-child {
-    margin-bottom: 0;
+    margin-bottom: 100px;
 }
 /*
 .page {

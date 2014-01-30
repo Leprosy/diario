@@ -8,6 +8,9 @@ if (!$page = Html::getPage()) {
     /* Get data */
     $feat   = Db::getFeatured();
     $stream = Db::getStream();
+    //$feat   = $feat['posts'];
+var_dump($feat);
+var_dump($stream);
 
     /* Generate markup */
     include('template.php');
