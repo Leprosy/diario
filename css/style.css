@@ -59,30 +59,39 @@ h1 {
 #page {
 }
 #page header {
+    font-weight: bold;
+    padding: 1em;
     color: #fff;
     background-color: #000;
 }
-#page footer {}
+#page footer {
+    color: #fff;
+    background-color: #000;
+    text-align: center;
+}
 
-#page p {
+#page article p {
     margin-bottom: 0.2em;
 }
-#page p.meta {
+#page article p.meta {
     font-size: 85%;
+}
+#page article {
+    padding: 1em;
+    background-color: #eee;
+    margin-bottom: 0.5em;
 }
 
 #big {
     margin-bottom: 2em;
 }
 #big article {
-    margin-bottom: 0.8em;
 }
 
 
 #normal {
 }
 #normal article {
-    margin-bottom: 0.8em;
 }
 
 /*
