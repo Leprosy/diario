@@ -50,6 +50,7 @@ table {
 body {
 	font-family: "Arimo", Arial, sans;
 	font-size: 0.9em;
+    background-color: #ccc;
 }
 h1 {
     font-weight: bold;
@@ -69,12 +70,15 @@ h1 {
     color: #fff;
     background-color: #000;
     text-align: center;
+    padding: 1em;
 }
 
 #page article {
     padding: 1.5em;
-    background-color: #eee;
     margin-bottom: 0.5em;
+    line-height: 1.2em;
+    background-color: #fff;
+    box-shadow: 0 0.2em 0.5em #000;
 }
 #page article p {
     margin-bottom: 0.5em;
@@ -96,6 +100,9 @@ h1 {
 #normal article {
 }
 
+#normal article:last-child {
+    margin-bottom: 0;
+}
 /*
 .page {
 	background: url(../img/back.png);
