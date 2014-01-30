@@ -44,11 +44,8 @@ table {
 
 
 /* Diario */
-@import url(http://fonts.googleapis.com/css?family=Economica:700);
-@import url(http://fonts.googleapis.com/css?family=Arimo);
-
 body {
-	font-family: "Arimo", Arial, sans;
+	font-family: Arial, sans;
 	font-size: 0.9em;
     background-color: #ccc;
 }
