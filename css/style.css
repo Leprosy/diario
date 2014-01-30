@@ -62,7 +62,7 @@ h1 {
 }
 #page header {
     font-weight: bold;
-    padding: 2.5em;
+    padding: 1em;
     color: #fff;
     background-color: #000;
 }
@@ -74,8 +74,8 @@ h1 {
 }
 
 #page article {
-    padding: 3.5em;
-    margin-bottom: 2.5em;
+    padding: 1.5em;
+    margin-bottom: 0.5em;
     line-height: 1.2em;
     background-color: #fff;
     box-shadow: 0 0.2em 0.5em #000;
