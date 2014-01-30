@@ -44,6 +44,13 @@ table {
 
 
 /* Diario */
+html {
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
 body {
 	font-family: Arial, sans;
 	font-size: 0.9em;
