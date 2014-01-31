@@ -2,10 +2,9 @@
 
 class Builder {
     static public $feeds = array(
-        'El Mostrador' => 'http://www.elmostrador.cl/feed/' /*,
+        'El Mostrador' => 'http://www.elmostrador.cl/feed/',
         'El Mostrador Mercados' => 'http://elmostrador.ida.cl/feed/',
-        'Extracine' => 'http://feeds.hipertextual.com/extracine',
-        'ALT1040' => 'http://feeds.hipertextual.com/alt1040' */
+        'ALT1040' => 'http://feeds.hipertextual.com/alt1040'
     );
 
     static public function build() {
