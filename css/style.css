@@ -61,7 +61,14 @@ h1 {
     font-size: 130%;
     margin-bottom: 0.5em;
 }
-
+a {
+    color: #000;
+    text-decoration: none;
+}
+a:hover {
+    color: #666;
+    text-decoration: underline;
+}
 #page {
 }
 #page header {
@@ -80,7 +87,7 @@ h1 {
 #page article {
     padding: 1.5em;
     margin-bottom: 0.5em;
-    line-height: 1.2em;
+    line-height: 1.4em;
     background-color: #fff;
     box-shadow: 0 0.2em 0.5em #000;
 }
@@ -107,206 +114,9 @@ h1 {
 #normal article:last-child {
     margin-bottom: 100px;
 }
-/*
-.page {
-	background: url(../img/back.png);
-	margin-top: 3em;
-}
-#posts {
-	display: none;
-}
 
-#message {
-	position: fixed;
-	text-align: center;
-	top: 10em;
-    left:0;
-    right:0;
-    margin-left:auto;
-    margin-right:auto;
-    width: 10em;
-
-	background-color: #fff;
-	border: 1px solid #aaa;
-	box-shadow: 0px 12px 20px #333;
-	padding: 2em 3em;
-	cursor: pointer;
-    -moz-border-radius:6px;
-    -webkit-border-radius:6px;
-    border-radius:6px;
-}
-
-header {
-	padding: 2em 0 2.5em;
-}
-header h1, div#posts > h3 {
-	font-family: "Economica", Impact, sans;
-	font-size: 280%;
-	text-align: center;
-	text-shadow: 1px 1px 1px #fff;
-	color: #999;
-	text-transform: uppercase;
-}
-header h3 {
-	font-size: 70%;
-    text-shadow: 1px 1px 1px #fff;
-    color: #666;
-	text-align: center;
-}
-div#posts > h3 {
-	padding: 0.8em 0.5em 0;
-	text-align: right;
-}
-header h1 a, #posts h3 a {
-	color: #999;
-	text-decoration: none;
-}
-header h1 a:hover, #posts h3 a:hover {
-	color: #888;
-}
-
-div.inside header h1 {
-    text-align: right;
-    padding-right: 0.2em;
-}
-
-section.main {
-	overflow: hidden;
-}
-section.main article {
-	text-align: center;
-	margin-bottom: 3em;
-}
-section.main article h1, section.main article h2 {
-	font-size: 120%;
-	font-weight: bold;
-	text-shadow: 1px 1px 2px #666;
-	margin-bottom: 0.5em;
-}
-section.main article h2 a {
-	color: #000;
-	text-decoration: none;
-}
-section.main article h2 a:hover {
-	color: #333;
-}
-section.main article h1 {
-	font-size: 150%;
-}
-section.main article p {
-	font-size: 112%;
-	margin-bottom: 0.5em;
-}
-section.main article p.meta {
-	font-size: 75%;
-	color: #666;
-	text-shadow: 1px 1px 2px #eee;
-	margin-bottom: 1em;
-}
-
-article section.content {
-    line-height: 1.4em;
-}
-div.inside section.main article {
-    padding: 0 1.6em;
-    text-align: justify;
-}
-
-section.main #social, section.main #comments, section.main #comment{
-	padding: 0 1.6em;
-	margin-bottom: 2em;
-}
-section.main #social {
-	text-align: center;
-}
-
-section.main #comments h3, section.main #comment h3 {
-	font-size: 110%;
-	font-weight: bold;
-	margin-bottom: 1em;
-}
-
-section.main #comments article {
-	font-size: 90%;
-	margin-left: 0;
-	margin-bottom: 1em;
-	padding: 1em;
-	background-color: #cecece;
-	box-shadow: 1px 1px 4px #888;
-	overflow: auto;
-}
-section.main #comments article strong {
-	font-weight: bold;
-}
-section.main #comments article img {
-	float: left;
-	width: 32px;
-	margin-right: 0.8em;
-}
-section.main #comment input, section.main #comment textarea {
-	padding: 0.5em;
-    border: 2px solid #ccc;
-    width: 95%;
-    font-family: Arial, sans;
-}
-
-section.main #comment input.button {
-	width: 30%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-footer {
-	padding: 3em 0 3em;
-	text-align: center;
-}
-footer p {
-	margin-bottom: 1em;
-}
-footer strong {
-	font-weight: bold;
-}
-
-
-.button {
-	margin: 0 0.2%;
-    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-    box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
-    background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
-    background-color:#f9f9f9;
-    -moz-border-radius:6px;
-    -webkit-border-radius:6px;
-    border-radius:6px;
-    border:1px solid #dcdcdc;
-    display:inline-block;
-    color:#666666;
-    font-family:arial;
-    font-size:13px;
-    font-weight:normal;
-    padding:1px 12px;
-    text-decoration:none;
-    text-shadow:1px 1px 0px #ffffff;
-}.button:hover {
-    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
-    background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
-    background-color:#e9e9e9;
-}.button:active {
-    position:relative;
-    top:1px;
-}
-
-small {
-	font-size: 80%;
-}*/
-
-
-/* MQ 
-@media(min-width:480px) {
+/* MQ */
+/*@media(min-width:480px) {
     #commentform {
         width: 450px;
     }
@@ -330,34 +140,16 @@ small {
     section.main #comments article img {
         width: 64px;
     }
-}
+} */
 @media(min-width:980px) {
-    .page {
-        margin-top: 4em;
-    }
-	#message {
-	    width: 40em;
-	}
-    section.main {
-        margin-top: 4em;
-        width: 900px;
+    #page {
+        width: 60%;
         margin-left: auto;
         margin-right: auto;
     }
-    section.main #comments h3, section.main #comment h3 {
-        margin-bottom: 1.5em;
-    }
-    #front section.main article {
-        text-align: center;
-        margin-bottom: 3em;
-        float: left;
-        width: 30%;
-        margin-left: 1.5%;
-        margin-right: 1.5%;
-    }
 }
 
-@media(min-width:1024px) {
+/* @media(min-width:1024px) {
     .page {
         margin-top: 5em;
     }   
@@ -378,4 +170,4 @@ small {
 		margin-left: auto;
 		margin-right: auto;
 	}
-}
+} */

@@ -16,7 +16,7 @@ class Db {
 
     public static function getFeatured($onlyIds = false) {
         $Db  = self::getInstance();
-        $sql = "SELECT * FROM post WHERE date >= ".(time() - 43200)." ORDER BY social DESC LIMIT 4";
+        $sql = sprintf("SELECT * FROM post WHERE date >= %d ORDER BY social DESC LIMIT 4", (time() - 43200));
         $res = mysql_query($sql, $Db);
 
         $ids = array();
@@ -38,7 +38,7 @@ class Db {
         $Db        = self::getInstance();
         $ids       = self::getFeatured(true);
         $condition = count($ids) > 0 ? 'WHERE id NOT IN ('.implode(',', $ids).')' : '';
-        $sql       = "SELECT * FROM post $condition ORDER BY date DESC LIMIT " . (Config::pageSize * ($page - 1)) . "," . Config::pageSize;
+        $sql       = sprintf("SELECT * FROM post $condition ORDER BY date DESC LIMIT %d, %d",(Config::pageSize * ($page - 1)), Config::pageSize);
         $res       = mysql_query($sql, $Db);
         $posts     = array();
 
@@ -53,20 +53,19 @@ class Db {
         $Db  = self::getInstance();        
         $sql = sprintf("SELECT id FROM post WHERE link = '%s'", $post->link);
         $res = mysql_query($sql, $Db);
-        var_dump($sql);
 
         if ($row = mysql_fetch_array($res)) {
             /* update social status */
-            $sql = sprintf("UPDATE post SET social = %s WHERE id = %s", $post->social, $row[0]);
+            $sql    = sprintf("UPDATE post SET social = %s WHERE id = %s", $post->social, $row[0]);
             $result = mysql_query($sql, $Db);
 
-            return ('updated');
+            return 'updated';
         } else {
             /* insert post */
-            $sql = sprintf("INSERT INTO post (title, link, source, social, content, thumb, date) VALUES ('%s','%s','%s',%s,'%s','%s',%s)", $post->title, $post->link, $post->source, $post->social, Html::words(strip_tags($post->content), 150), $post->thumb, $post->date);
+            $sql    = sprintf("INSERT INTO post (title, link, source, social, content, thumb, date) VALUES ('%s','%s','%s',%s,'%s','%s',%s)", $post->title, $post->link, $post->source, $post->social, Html::words(strip_tags($post->content), 150), $post->thumb, $post->date);
             $result = mysql_query($sql, $Db);
 
-            return ('saved');
+            return 'saved';
         }
     }
 }
