@@ -60,7 +60,6 @@ b {
     font-weight: bold;o
 }
 h1 {
-    font-weight: bold;
     font-size: 130%;
     margin-bottom: 0.5em;
 }
@@ -122,17 +121,27 @@ a.more {
 }
 
 #big {
+    font-size: 110%;
     margin-bottom: 2em;
 }
-#big article {
+#big h1 {
+    font-weight: bold;
+}
+#big article.main {
+    font-size: 130%;
 }
 
 
 #normal {
 }
+#normal .feat {
+    font-size: 110%;
+}
+#normal .feat h1 {
+    font-weight: bold;
+}
 #normal article {
 }
-
 #normal article:last-child {
     margin-bottom: 0;
 }

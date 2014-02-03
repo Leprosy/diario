@@ -1,6 +1,8 @@
 <?php
 
 class Html {
+    const FEAT = 50;
+
     static public function getPage($pag = '') {
         $file = Config::cacheFile . $pag;
 

@@ -62,7 +62,7 @@ class Db {
             return 'updated';
         } else {
             /* insert post */
-            $sql    = sprintf("INSERT INTO post (title, link, source, social, content, thumb, date) VALUES ('%s','%s','%s',%s,'%s','%s',%s)", $post->title, $post->link, $post->source, $post->social, Html::words(strip_tags($post->content), 150), $post->thumb, $post->date);
+            $sql    = sprintf("INSERT INTO post (title, link, source, social, content, thumb, date) VALUES ('%s','%s','%s',%s,'%s','%s',%s)", $post->title, $post->link, $post->source, $post->social, Html::words(strip_tags($post->content), 50), $post->thumb, $post->date);
             $result = mysql_query($sql, $Db);
 
             return 'saved';

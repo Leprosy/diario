@@ -35,7 +35,7 @@
             <?php if (count($stream)) : ?>
             <section id="normal">
                 <?php foreach($stream as $post) : ?>
-                <article class="sub">
+                <article class="sub<?php if ($post->social >= Html::FEAT) : ?> feat<?php endif; ?>">
                     <h1><a href="<?php echo $post->link ?>" target="_blank"><?php echo $post->title ?></a></h1>
                     <p class="meta">Publicado hace <?php echo Html::relativeDate($post->date) ?> vía <?php echo $post->source ?></p>
                     <p><?php echo $post->content ?> ... <a class="more" href="<?php echo $post->link ?>" target="_blank">[Leer más]</a></p>
