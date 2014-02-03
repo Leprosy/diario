@@ -113,6 +113,7 @@ a.more {
     box-shadow: 0 0.2em 0.5em #000;
 }
 #page article p {
+    color: #444;
     margin-bottom: 0.5em;
 }
 #page article p.meta {
@@ -132,19 +133,13 @@ a.more {
 }
 
 
-#normal {
-}
 #normal .feat {
     font-size: 110%;
 }
 #normal .feat h1 {
     font-weight: bold;
 }
-#normal article {
-}
-#normal article:last-child {
-    margin-bottom: 0;
-}
+
 
 /* MQ */
 /*@media(min-width:480px) {
