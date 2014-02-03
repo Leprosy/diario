@@ -14,6 +14,7 @@
                 <p>El Diario - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?> de <?php echo date('Y') ?></p>
             </header>
 
+            <?php if (count($feat)) : ?>
             <section id="big">
                 <article class="main">
                     <h1><a href="<?php echo $feat[0]->link ?>" target="_blank"><?php echo $feat[0]->title ?></a></h1>
@@ -29,7 +30,9 @@
                 </article>
                 <?php endfor; ?>
             </section>
+            <?php endif; ?>
 
+            <?php if (count($stream)) : ?>
             <section id="normal">
                 <?php foreach($stream as $post) : ?>
                 <article class="sub">
@@ -39,6 +42,7 @@
                 </article>
                 <?php endforeach; ?>
             </section>
+            <?php endif; ?>
 
             <footer>
                 (C)<?php echo date('Y') ?> Leprosystems
