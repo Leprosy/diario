@@ -111,6 +111,7 @@ a.more {
     line-height: 1.4em;
     background-color: #fff;
     box-shadow: 0 0.2em 0.5em #000;
+    overflow: auto;
 }
 #page article p {
     color: #444;
@@ -119,6 +120,12 @@ a.more {
 #page article p.meta {
     font-size: 85%;
     color: #999;
+}
+#page article img {
+    float: left;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    max-width: 50%;
 }
 
 #big {

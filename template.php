@@ -19,14 +19,24 @@
                 <article class="main">
                     <h1><a href="<?php echo $feat[0]->link ?>" target="_blank"><?php echo $feat[0]->title ?></a></h1>
                     <p class="meta">Publicado hace <?php echo Html::relativeDate($feat[0]->date) ?> vía <?php echo $feat[0]->source ?></p>
-                    <p><?php echo $feat[0]->content ?> ... <a class="more" href="<?php echo $feat[0]->link ?>" target="_blank">[Leer más]</a></p>
+                    <p>
+                        <?php if ($feat[0]->thumb) : ?>
+                            <img src="<?php echo $feat[0]->thumb ?>" />
+                        <?php endif; ?>
+                        <?php echo $feat[0]->content ?> ... <a class="more" href="<?php echo $feat[0]->link ?>" target="_blank">[Leer más]</a>
+                    </p>
                 </article>
 
                 <?php for ($i = 1; $i < 4; ++$i) : ?>
                 <article class="sub">
                     <h1><a href="<?php echo $feat[$i]->link ?>" target="_blank"><?php echo $feat[$i]->title ?></a></h1>
                     <p class="meta">Publicado hace <?php echo Html::relativeDate($feat[$i]->date) ?> vía <?php echo $feat[$i]->source ?></p>
-                    <p><?php echo $feat[$i]->content ?> ... <a class="more" href="<?php echo $feat[$i]->link ?>" target="_blank">[Leer más]</a></p>
+                    <p>
+                        <?php if ($feat[$i]->thumb) : ?>
+                            <img src="<?php echo $feat[$i]->thumb ?>" />
+                        <?php endif; ?>
+                        <?php echo $feat[$i]->content ?> ... <a class="more" href="<?php echo $feat[$i]->link ?>" target="_blank">[Leer más]</a>
+                    </p>
                 </article>
                 <?php endfor; ?>
             </section>
@@ -38,7 +48,12 @@
                 <article class="sub<?php if ($post->social >= Html::FEAT) : ?> feat<?php endif; ?>">
                     <h1><a href="<?php echo $post->link ?>" target="_blank"><?php echo $post->title ?></a></h1>
                     <p class="meta">Publicado hace <?php echo Html::relativeDate($post->date) ?> vía <?php echo $post->source ?></p>
-                    <p><?php echo $post->content ?> ... <a class="more" href="<?php echo $post->link ?>" target="_blank">[Leer más]</a></p>
+                    <p>
+                        <?php if ($post->social >= Html::FEAT && $post->thumb) : ?>
+                            <img src="<?php echo $post->thumb ?>" />
+                        <?php endif; ?>
+                        <?php echo $post->content ?> ... <a class="more" href="<?php echo $post->link ?>" target="_blank">[Leer más]</a>
+                    </p>
                 </article>
                 <?php endforeach; ?>
             </section>
