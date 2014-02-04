@@ -3,6 +3,7 @@
     <head>
         <title>El Diario - <?php echo date('d-m-Y') ?></title>
         <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
         <script src="js/jquery.js"></script>
     </head>
