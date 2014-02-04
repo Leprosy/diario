@@ -19,7 +19,7 @@
             <section id="big">
                 <article class="main">
                     <h1><a href="<?php echo $feat[0]->link ?>" target="_blank"><?php echo $feat[0]->title ?></a></h1>
-                    <p class="meta">Publicado hace <?php echo Html::relativeDate($feat[0]->date) ?> vía <?php echo $feat[0]->source ?></p>
+                    <p class="meta">Publicado <?php echo Html::relativeDate($feat[0]->date) ?> vía <?php echo $feat[0]->source ?></p>
                     <p>
                         <?php if ($feat[0]->thumb) : ?>
                             <img src="<?php echo $feat[0]->thumb ?>" />
@@ -31,7 +31,7 @@
                 <?php for ($i = 1; $i < 4; ++$i) : ?>
                 <article class="sub">
                     <h1><a href="<?php echo $feat[$i]->link ?>" target="_blank"><?php echo $feat[$i]->title ?></a></h1>
-                    <p class="meta">Publicado hace <?php echo Html::relativeDate($feat[$i]->date) ?> vía <?php echo $feat[$i]->source ?></p>
+                    <p class="meta">Publicado <?php echo Html::relativeDate($feat[$i]->date) ?> vía <?php echo $feat[$i]->source ?></p>
                     <p>
                         <?php if ($feat[$i]->thumb) : ?>
                             <img src="<?php echo $feat[$i]->thumb ?>" />
@@ -48,7 +48,7 @@
                 <?php foreach($stream as $post) : ?>
                 <article class="sub<?php if ($post->social >= Html::FEAT) : ?> feat<?php endif; ?>">
                     <h1><a href="<?php echo $post->link ?>" target="_blank"><?php echo $post->title ?></a></h1>
-                    <p class="meta">Publicado hace <?php echo Html::relativeDate($post->date) ?> vía <?php echo $post->source ?></p>
+                    <p class="meta">Publicado <?php echo Html::relativeDate($post->date) ?> vía <?php echo $post->source ?></p>
                     <p>
                         <?php if ($post->social >= Html::FEAT && $post->thumb) : ?>
                             <img src="<?php echo $post->thumb ?>" />
