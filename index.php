@@ -23,7 +23,7 @@ try {
     include('error.php');
 
     if (Config::environment == 'development') {
-        var_dump($e->name);
+        var_dump($e);
     }
 }
 
