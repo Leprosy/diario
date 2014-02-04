@@ -51,22 +51,12 @@ class Db {
         if ($res->rowCount() > 0) {
             /* update social status */
             $res = $res->fetchAll(PDO::FETCH_OBJ);
-            $sql    = sprintf("UPDATE post SET social = %s WHERE id = %s", $post->social, $res[0]->id);
-
-            if ($Db->exec($sql)) {
-                return 'updated';
-            } else {
-                return 'error';
-            }
+            $sql = sprintf("UPDATE post SET social = %s WHERE id = %s", $post->social, $res[0]->id);
+            return $Db->exec($sql) . ' updated';
         } else {
             /* insert post */
             $sql = sprintf("INSERT INTO post (title, link, source, social, content, thumb, date) VALUES ('%s','%s','%s',%s,'%s','%s',%s)", $post->title, $post->link, $post->source, $post->social, $post->content, $post->thumb, $post->date);
-
-            if ($Db->exec($sql)) {
-                return 'saved';
-            } else {
-                return 'error';
-            }
+            return $Db->exec($sql) . ' saved';
         }
     }
 }
