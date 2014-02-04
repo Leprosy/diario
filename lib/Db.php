@@ -5,10 +5,8 @@ class Db {
 
     public static function getInstance() {
         if (!self::$instance) {
-            self::$instance = mysql_connect(Config::host, Config::user, Config::pass);
-
-            mysql_select_db(Config::db, self::$instance);
-            mysql_query('SET NAMES utf8');
+            self::$instance = new PDO(sprintf("mysql:host=%s;dbname=%s", Config::host, Config::db), Config::user, Config::pass);
+            self::$instance->query('SET NAMES utf8');
         }
 
         return (self::$instance);
@@ -17,14 +15,11 @@ class Db {
     public static function getFeatured($onlyIds = false) {
         $Db  = self::getInstance();
         $sql = sprintf("SELECT * FROM post WHERE date >= %d ORDER BY social DESC LIMIT 4", (time() - 43200));
-        $res = mysql_query($sql, $Db);
-
+        $featured = $Db->query($sql)->fetchAll(PDO::FETCH_OBJ);
         $ids = array();
-        $featured = array();
 
-        while ($post = mysql_fetch_object($res)) {
-            $ids[]      = $post->id;
-            $featured[] = $post;
+        foreach ($featured as $post) {
+            $ids[] = $post->id;
         }
 
         if ($onlyIds) {
@@ -39,33 +34,39 @@ class Db {
         $ids       = self::getFeatured(true);
         $condition = count($ids) > 0 ? 'WHERE id NOT IN ('.implode(',', $ids).')' : '';
         $sql       = sprintf("SELECT * FROM post $condition ORDER BY date DESC LIMIT %d, %d",(Config::pageSize * ($page - 1)), Config::pageSize);
-        $res       = mysql_query($sql, $Db);
-        $posts     = array();
+        $posts     = $Db->query($sql);
 
-        while ($post = mysql_fetch_object($res)) {
-            $posts[] = $post;
+        if ($posts) {
+            return $posts->fetchAll(PDO::FETCH_OBJ);
+        } else {
+            return array();
         }
-
-        return $posts;
     }
 
     public static function savePost($post) {
         $Db  = self::getInstance();        
         $sql = sprintf("SELECT id FROM post WHERE link = '%s'", $post->link);
-        $res = mysql_query($sql, $Db);
+        $res = $Db->query($sql);
 
-        if ($row = mysql_fetch_array($res)) {
+        if ($res->rowCount() > 0) {
             /* update social status */
-            $sql    = sprintf("UPDATE post SET social = %s WHERE id = %s", $post->social, $row[0]);
-            $result = mysql_query($sql, $Db);
+            $res = $res->fetchAll(PDO::FETCH_OBJ);
+            $sql    = sprintf("UPDATE post SET social = %s WHERE id = %s", $post->social, $res[0]->id);
 
-            return 'updated';
+            if ($Db->exec($sql)) {
+                return 'updated';
+            } else {
+                return 'error';
+            }
         } else {
             /* insert post */
-            $sql    = sprintf("INSERT INTO post (title, link, source, social, content, thumb, date) VALUES ('%s','%s','%s',%s,'%s','%s',%s)", $post->title, $post->link, $post->source, $post->social, Html::words(strip_tags($post->content), 50), $post->thumb, $post->date);
-            $result = mysql_query($sql, $Db);
+            $sql    = sprintf("INSERT INTO post (title, link, source, social, content, thumb, date) VALUES ('%s','%s','%s',%s,'%s','%s',%s)", $post->title, $post->link, $post->source, $post->social, Html::words(strip_tags($post->content), 70), $post->thumb, $post->date);
 
-            return 'saved';
+            if ($Db->exec($sql)) {
+                return 'updated';
+            } else {
+                return 'error';
+            }
         }
     }
 }
