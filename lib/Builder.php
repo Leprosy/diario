@@ -4,7 +4,8 @@ class Builder {
     static public $feeds = array(
         'El Mostrador' => 'http://www.elmostrador.cl/feed/',
         'El Mostrador Mercados' => 'http://www.elmostradormercados.cl/feed/',
-        'ALT1040' => 'http://feeds.hipertextual.com/alt1040'
+        'ALT1040' => 'http://feeds.hipertextual.com/alt1040',
+        'El Dínamo' => 'http://www.eldinamo.cl/feed/'
     );
 
     static public function build() {
