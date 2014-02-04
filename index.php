@@ -11,7 +11,7 @@ try {
         $stream = Db::getStream();
 
         /* Generate markup */
-        include('template.php');
+        include('tpl/template.php');
 
         /* Save to cache */
         $page = ob_get_clean();
@@ -20,7 +20,7 @@ try {
         echo "cache hit";
     }
 } catch(Exception $e) {
-    include('error.php');
+    include('tpl/error.php');
 
     if (Config::environment == 'development') {
         var_dump($e);

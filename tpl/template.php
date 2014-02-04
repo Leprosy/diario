@@ -8,6 +8,7 @@
         <link rel="icon" href="img/icon.png" type="image/x-icon" />
         <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
         <script src="js/jquery.js"></script>
+        <?php include('track.php') ?>
     </head>
 
     <body>
