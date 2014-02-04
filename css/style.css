@@ -136,7 +136,7 @@ a.more {
     font-weight: bold;
 }
 #big article.main {
-    font-size: 130%;
+    font-size: 120%;
 }
 
 
@@ -152,29 +152,10 @@ a.more {
 
 /* MQ */
 /*@media(min-width:480px) {
-    #commentform {
-        width: 450px;
-    }
-    #front section.main img, img.main {
-        width: 100%;
-        margin-bottom: 1em;
-        border:1px solid #666;
-        box-shadow: 1px 1px 8px #000;
-    }
-    #message {
-        width: 20em;
-    }
+
 }
 @media(min-width:700px) {
-    body {
-        font-size: 0.9em;
-    }
-    #commentform {
-        width: 450px;
-    }
-    section.main #comments article img {
-        width: 64px;
-    }
+
 } */
 @media(min-width:980px) {
     #page {
@@ -185,24 +166,9 @@ a.more {
 }
 
 /* @media(min-width:1024px) {
-    .page {
-        margin-top: 5em;
-    }   
-    section.main {
-        width: 960px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+
 }
 
 @media(min-width:1200px) {
-    .page {
-        margin-top: 6em;
-    }
 
-	section.main {
-	    width: 1200px;
-		margin-left: auto;
-		margin-right: auto;
-	}
 } */
