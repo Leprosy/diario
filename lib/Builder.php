@@ -3,7 +3,7 @@
 class Builder {
     static public $feeds = array(
         'El Mostrador' => 'http://www.elmostrador.cl/feed/',
-        'El Mostrador Mercados' => 'http://elmostrador.ida.cl/feed/',
+        'El Mostrador Mercados' => 'http://www.elmostradormercados.cl/feed/',
         'ALT1040' => 'http://feeds.hipertextual.com/alt1040'
     );
 
