@@ -1,8 +1,6 @@
 <?php
 
 class Html {
-    const FEAT = 50;
-
     static public function getPage($pag = '') {
         $file = Config::cacheFile . $pag;
 
@@ -50,45 +48,5 @@ class Html {
     static function words($string, $word_limit) {
         $words = explode(" ", $string);
         return implode(" ", array_splice($words, 0, $word_limit));
-    }
-
-    static function streamPost($post) {
-        $date  = Html::relativeDate($post->date);
-        $text  = Html::words($post->content, ($post->social > Config::socialFeat ? 70 : 40));
-        $class = $post->social > Config::socialFeat ? 
-                    ($post->social > Config::socialSFeat ? 'superfeatured' : 'featured') : '';
-        $img   = ($post->social > Config::socialSFeat && $post->thumb!='') ? 
-                    '<img src="' . $post->thumb . '" width="100" />' : '';
-
-        $html  = <<<EOD
-<article class="box $class">
-    <h2><a href="$post->link" target="_blank">$post->title</a></h2>
-    <p class="date">$date vía <a href="#">$post->source</a></p>
-    $img
-    <p>$text...</p>
-    <div class="shade"></div>
-    <a class="more" href="$post->link" target="_blank">Leer más</a>
-</article>
-EOD;
-        return $html;
-    }
-
-    static function streamAd() {
-        $html = <<<EOD
-<article class="box ad">
-    <script type="text/javascript"><!--
-        google_ad_client = "ca-pub-1241131205896179";
-        /* 200x200, creado 24/07/09 */
-        google_ad_slot = "4443810839";
-        google_ad_width = 200;
-        google_ad_height = 200;
-        //-->
-    </script>
-    <script type="text/javascript"
-            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
-</article>
-EOD;
-        return $html;
     }
 }

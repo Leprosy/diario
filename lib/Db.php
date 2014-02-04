@@ -63,7 +63,7 @@ class Db {
             $sql = sprintf("INSERT INTO post (title, link, source, social, content, thumb, date) VALUES ('%s','%s','%s',%s,'%s','%s',%s)", $post->title, $post->link, $post->source, $post->social, $post->content, $post->thumb, $post->date);
 
             if ($Db->exec($sql)) {
-                return 'updated';
+                return 'saved';
             } else {
                 return 'error';
             }

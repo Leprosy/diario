@@ -6,7 +6,7 @@ class Config {
     const environment = 'development';
 
     /* Db connection */
-    const host  = 'localhosts';
+    const host  = 'localhost';
     const db    = 'diario';
     const user  = 'root';
     const pass  = 'leprosy';
@@ -15,8 +15,7 @@ class Config {
     const pageSize    = 20;
     const twSize      = 1;
     const fbSize      = 1;
-    const socialFeat  = 40;
-    const socialSFeat = 60;
+    const socialFeat  = 50;
     
     /* cache */
     const cacheFile = 'cache/site.html';

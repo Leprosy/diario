@@ -43,13 +43,25 @@
                     </p>
                 </article>
                 <?php endfor; ?>
+
+                <article>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- diario.l3pro.com -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-1241131205896179"
+                         data-ad-slot="9145105283"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </article>
             </section>
             <?php endif; ?>
 
             <?php if (count($stream)) : ?>
             <section id="normal">
                 <?php foreach($stream as $post) : ?>
-                <?php $feat = $post->social >= Html::FEAT ?>
+                <?php $feat = $post->social >= Config::socialFeat ?>
                 <article class="sub<?php if ($feat) : ?> feat<?php endif; ?>">
                     <h1><a href="<?php echo $post->link ?>" target="_blank"><?php echo $post->title ?></a></h1>
                     <p class="meta">Publicado <?php echo Html::relativeDate($post->date) ?> vía <?php echo $post->source ?></p>
@@ -61,6 +73,18 @@
                     </p>
                 </article>
                 <?php endforeach; ?>
+
+                <article>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- diario.l3pro.com -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-1241131205896179"
+                         data-ad-slot="9145105283"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </article>
             </section>
             <?php endif; ?>
 
