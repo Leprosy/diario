@@ -60,7 +60,7 @@ class Db {
             }
         } else {
             /* insert post */
-            $sql    = sprintf("INSERT INTO post (title, link, source, social, content, thumb, date) VALUES ('%s','%s','%s',%s,'%s','%s',%s)", $post->title, $post->link, $post->source, $post->social, Html::words(strip_tags($post->content), 70), $post->thumb, $post->date);
+            $sql = sprintf("INSERT INTO post (title, link, source, social, content, thumb, date) VALUES ('%s','%s','%s',%s,'%s','%s',%s)", $post->title, $post->link, $post->source, $post->social, $post->content, $post->thumb, $post->date);
 
             if ($Db->exec($sql)) {
                 return 'updated';

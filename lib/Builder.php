@@ -26,7 +26,7 @@ class Builder {
                 $post->title   = ($item->get_title());
                 $post->source  = ($name);
                 $post->link    = current(explode('?', $item->get_link()));
-                $post->content = $item->get_content();
+                $post->content = Html::words(strip_tags($item->get_content()), 70);
                 $post->thumb   = self::scrapImg($post->link);
 
                 /* Calculating social weight */
