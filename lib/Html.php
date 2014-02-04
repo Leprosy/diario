@@ -1,6 +1,8 @@
 <?php
 
 class Html {
+    static private $articleTpl = false;
+
     static public function getPage($pag = '') {
         $file = Config::cacheFile . $pag;
 

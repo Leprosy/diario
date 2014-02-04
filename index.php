@@ -15,7 +15,7 @@ try {
 
             /* Generate markup */
             foreach ($stream as $post) {
-                var_dump($post);
+                include('tpl/article.php');
             }
 
             /* Save to cache */
