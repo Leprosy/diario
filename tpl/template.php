@@ -44,6 +44,7 @@
                 </article>
                 <?php endfor; ?>
 
+                <?php echo Html::getAd() ?>
             </section>
             <?php endif; ?>
 
@@ -52,6 +53,8 @@
                 <?php foreach($stream as $post) : ?>
                 <?php include('tpl/article.php') ?>
                 <?php endforeach; ?>
+
+                <?php echo Html::getAd() ?>
             </section>
             <?php endif; ?>
 

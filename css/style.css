@@ -150,6 +150,10 @@ a.more {
     margin-bottom: 0;
 }
 
+#big article.ad, #normal article.ad {
+    background-color: #ddd;
+}
+
 /* MQ */
 /*@media(min-width:480px) {
 
