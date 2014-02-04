@@ -174,13 +174,13 @@ a.more {
         width: 64px;
     }
 } */
-/* @media(min-width:980px) {
+@media(min-width:980px) {
     #page {
         width: 60%;
         margin-left: auto;
         margin-right: auto;
     }
-} */
+}
 
 /* @media(min-width:1024px) {
     .page {

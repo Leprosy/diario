@@ -5,6 +5,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="img/icon.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
         <script src="js/jquery.js"></script>
     </head>
 
