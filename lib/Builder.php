@@ -37,6 +37,9 @@ class Builder {
                 //TW
                 $post->social += Social::getTW($post->link);
 
+                /* Add tags */
+                var_dump(Tagger::tokenize($post->title . ' ' . $post->content));
+
                 /* save content */
                 if ($post->content != '') {
                     var_dump($post);
@@ -58,7 +61,13 @@ class Builder {
         preg_match('/og:image"[ ]+content="(.+)"/', $data, $match);
 
         if (isset($match[1])) {
-            return (preg_replace('/-[0-9]+x[0-9]+/', '', $match[1]));
+            $img = preg_replace('/-[0-9]+x[0-9]+/', '', $match[1]);
+
+            if (strpos($img, 'elmostrador.png')===false) {
+                return $img;
+            } else {
+                return '';
+            }
         } else {
             return '';
         }

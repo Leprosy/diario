@@ -51,7 +51,7 @@ class Db {
         if ($res->rowCount() > 0) {
             /* update social status */
             $res = $res->fetchAll(PDO::FETCH_OBJ);
-            $sql = sprintf("UPDATE post SET social = %s WHERE id = %s", $post->social, $res[0]->id);
+            $sql = sprintf("UPDATE post SET social = %s, thumb = '%s' WHERE id = %s", $post->social, $post->thumb, $res[0]->id);
             return $Db->exec($sql) . ' updated';
         } else {
             /* insert post */
