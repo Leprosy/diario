@@ -1,5 +1,5 @@
 <article class="ad">
-    <p>Anuncio</p>
+    <p>Publicidad</p>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- diario.l3pro.com - ad -->
     <ins class="adsbygoogle"
