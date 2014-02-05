@@ -22,7 +22,7 @@
             <section id="big">
                 <article class="main">
                     <h1><a href="<?php echo $feat[0]->link ?>" target="_blank"><?php echo $feat[0]->title ?></a></h1>
-                    <p class="meta">Publicado <?php echo Html::relativeDate($feat[0]->date) ?> vía <?php echo $feat[0]->source ?></p>
+                    <p class="meta">Publicado <?php echo Html::relativeDate($feat[0]->date) ?> vía <b><?php echo $feat[0]->source ?></b></p>
                     <p>
                         <?php if ($feat[0]->thumb) : ?>
                             <img src="<?php echo $feat[0]->thumb ?>" />
@@ -34,7 +34,7 @@
                 <?php for ($i = 1; $i < 4; ++$i) : ?>
                 <article class="sub">
                     <h1><a href="<?php echo $feat[$i]->link ?>" target="_blank"><?php echo $feat[$i]->title ?></a></h1>
-                    <p class="meta">Publicado <?php echo Html::relativeDate($feat[$i]->date) ?> vía <?php echo $feat[$i]->source ?></p>
+                    <p class="meta">Publicado <?php echo Html::relativeDate($feat[$i]->date) ?> vía <b><?php echo $feat[$i]->source ?></b></p>
                     <p>
                         <?php if ($feat[$i]->thumb) : ?>
                             <img src="<?php echo $feat[$i]->thumb ?>" />
@@ -44,7 +44,7 @@
                 </article>
                 <?php endfor; ?>
 
-                <?php echo Html::getAd() ?>
+                <?php include('tpl/ad.php') ?>
             </section>
             <?php endif; ?>
 
@@ -54,7 +54,7 @@
                 <?php include('tpl/article.php') ?>
                 <?php endforeach; ?>
 
-                <?php echo Html::getAd() ?>
+                <?php include('tpl/ad.php') ?>
             </section>
             <?php endif; ?>
 

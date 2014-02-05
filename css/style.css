@@ -117,13 +117,16 @@ a.more {
     color: #444;
     margin-bottom: 0.5em;
 }
+#page article b {
+    color: #555;
+}
 #page article p.meta {
     font-size: 85%;
     color: #999;
 }
 #page article img {
     float: left;
-    margin-top: 0.25em;
+    margin-top: 0.2em;
     margin-right: 0.5em;
     margin-bottom: 0.5em;
     max-width: 50%;
