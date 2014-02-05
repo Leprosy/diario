@@ -14,7 +14,7 @@ class Db {
 
     public static function getFeatured($onlyIds = false) {
         $Db  = self::getInstance();
-        $sql = sprintf("SELECT * FROM post WHERE date >= %d ORDER BY social DESC LIMIT 4", (time() - 43200));
+        $sql = sprintf("SELECT * FROM post WHERE date >= %d ORDER BY social DESC LIMIT 4", (time() - 3600));
         $featured = $Db->query($sql)->fetchAll(PDO::FETCH_OBJ);
         $ids = array();
 
