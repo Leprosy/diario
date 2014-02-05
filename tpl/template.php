@@ -15,7 +15,7 @@
         <div id="page">
 
             <header>
-                <p>El Diario - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?> de <?php echo date('Y') ?></p>
+                <p><b>El Diario</b> - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?> de <?php echo date('Y') ?></p>
             </header>
 
             <?php if (count($feat)) : ?>
@@ -31,7 +31,7 @@
                     </p>
                 </article>
 
-                <?php for ($i = 1; $i < 4; ++$i) : ?>
+                <?php for ($i = 1; $i < count($feat); ++$i) : ?>
                 <article class="sub">
                     <h1><a href="<?php echo $feat[$i]->link ?>" target="_blank"><?php echo $feat[$i]->title ?></a></h1>
                     <p class="meta">Publicado <?php echo Html::relativeDate($feat[$i]->date) ?> vía <b><?php echo $feat[$i]->source ?></b></p>
