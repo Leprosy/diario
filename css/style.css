@@ -123,9 +123,11 @@ a.more {
 }
 #page article img {
     float: left;
+    margin-top: 0.25em;
     margin-right: 0.5em;
     margin-bottom: 0.5em;
     max-width: 50%;
+    box-shadow: 0 2px 6px #666;
 }
 
 #big {
@@ -157,22 +159,33 @@ a.more {
 /* MQ */
 /*@media(min-width:480px) {
 
-}
+}*/
 @media(min-width:700px) {
-
-} */
+    #page article img {
+        max-width: 40%;
+    }
+}
 @media(min-width:980px) {
     #page {
-        width: 60%;
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
 }
 
 /* @media(min-width:1024px) {
-
-}
+    #page {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #page article img {
+        max-width: 40%;
+    }
+} */
 
 @media(min-width:1200px) {
-
-} */
+    #page article img {
+        max-width: 30%;
+    }
+}
