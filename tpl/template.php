@@ -4,6 +4,7 @@
         <title>El Diario - <?php echo date('d-m-Y') ?></title>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1">
+        <meta name="description" content="Noticias de varios medios en español, compiladas y ordenadas para ud." />
         <link rel="stylesheet" href="css/style.css">
         <link rel="icon" href="img/icon.png" type="image/x-icon" />
         <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
