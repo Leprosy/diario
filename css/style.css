@@ -97,10 +97,22 @@ a.more {
 #page {
 }
 #page header {
+    position: relative;
     padding: 1em;
     color: #fff;
     background-color: #000;
     border-bottom: 2px solid #555;
+}
+#page header .search {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+}
+#page header .search input {
+    border: 1px solid #666;
+    font-size: 0.8em;
+    padding: 0.3em 0.5em;
+    width: 8em;
 }
 #page footer {
     color: #fff;
@@ -173,6 +185,12 @@ a.more {
     #page article img {
         max-width: 40%;
     }
+
+    #page header .search input {
+        width: 15em;
+        font-size: 1em;
+        background: #fff url(../img/find.png) no-repeat right;
+    }
 }
 @media(min-width:980px) {
     #page {
@@ -182,9 +200,12 @@ a.more {
     }
 }
 
-/*@media(min-width:1024px) {
-
-}*/
+@media(min-width:1024px) {
+    #page header .search input {
+        width: 20em;
+        font-size: 1em;
+    }
+}
 
 @media(min-width:1200px) {
     body {

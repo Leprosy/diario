@@ -16,6 +16,9 @@
 
             <header>
                 <p><b>El Diario</b> - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?> de <?php echo date('Y') ?></p>
+                <div class="search">
+                    <input id="search" type="text" autocomplete="off" placeholder="Buscar..." value="<?php echo $search ?>" />
+                </div>
             </header>
 
             <?php if (count($feat)) : ?>
@@ -69,6 +72,7 @@
             var page = 1;
 
             $(function () {
+                // Infinite scroll
                 var $win = $(window);
 
                 $win.scroll(function () {
@@ -82,6 +86,17 @@
                         })
                     }
                 });
+
+                // Search
+                var goSearch = function() {
+                    window.location = '?search=' + $('#search').val();
+                }
+
+                $('#search').on('keydown', function(e) {
+                    if (e.keyCode == 13) {
+                        goSearch();
+                    }
+                })
             });
         </script>
     </body>
