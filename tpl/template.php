@@ -15,7 +15,7 @@
         <div id="page">
 
             <header>
-                <p><b>El Diario</b> - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?> de <?php echo date('Y') ?></p>
+                <p><b>El Diario</b> - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?></p>
                 <div class="search">
                     <input id="search" type="text" autocomplete="off" placeholder="Buscar..." value="<?php echo $search ?>" />
                 </div>
