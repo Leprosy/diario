@@ -3,9 +3,7 @@
 class Html {
     static private $articleTpl = false;
 
-    static public function getPage($pag = '') {
-        $file = Config::cacheFile . $pag;
-
+    static public function getPage($file) {
         if (file_exists($file) && ((time() - filemtime($file)) < Config::cacheTime )) {
             return file_get_contents($file);
         } else {

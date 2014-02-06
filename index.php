@@ -2,16 +2,18 @@
 include 'lib/Config.php';
 
 try {
-    /* Is a page requested or the home page */
-    $pagNum = isset($_GET['page']) ? (int)$_GET['page'] : false;
+    $pagNum = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $search = isset($_GET['search']) ? $_GET['search'] : '';
+    $file = sprintf("%s_%s_%d", Config::cacheFile, $search, $pagNum);
 
-    if ($pagNum) {
+    /* Is a page requested or the home page */
+    if ($pagNum > 1) {
         /* Page */
-        if (!$page = Html::getPage($pagNum)) {
+        if (!$page = Html::getPage($file)) {
             ob_start();
 
             /* Get data */
-            $stream = Db::getStream($pagNum);
+            $stream = Db::getStream($search, $pagNum);
 
             /* Generate markup */
             foreach ($stream as $post) {
@@ -20,24 +22,24 @@ try {
 
             /* Save to cache */
             $page = ob_get_clean();
-            file_put_contents(Config::cacheFile . $pagNum, $page);
+            file_put_contents($file, $page);
         }
     } else {
         /* Home */
         /* Look for cached html */
-        if (!$page = Html::getPage()) {
+        if (!$page = Html::getPage($file)) {
             ob_start();
 
             /* Get data */
-            $feat   = Db::getFeatured();
-            $stream = Db::getStream();
+            $feat   = Db::getFeatured($search);
+            $stream = Db::getStream($search, $pagNum);
 
             /* Generate markup */
             include('tpl/template.php');
 
             /* Save to cache */
             $page = ob_get_clean();
-            file_put_contents(Config::cacheFile, $page);
+            file_put_contents($file, $page);
         }
     }
 } catch(Exception $e) {

@@ -12,28 +12,31 @@ class Db {
         return (self::$instance);
     }
 
-    public static function getFeatured($onlyIds = false) {
+    public static function getFeatured($search, $onlyIds = false) {
         $Db  = self::getInstance();
-        $sql = sprintf("SELECT * FROM post WHERE date >= %d ORDER BY social DESC LIMIT 4", (time() - 3600));
-        $featured = $Db->query($sql)->fetchAll(PDO::FETCH_OBJ);
-        $ids = array();
+        $sql = sprintf("SELECT * FROM post WHERE date >= %d AND title LIKE '%%%s%%' AND content LIKE '%%%s%%' ORDER BY social DESC LIMIT 4", (time() - 3600), $search, $search);
 
-        foreach ($featured as $post) {
-            $ids[] = $post->id;
-        }
+        $featured = $Db->query($sql)->fetchAll(PDO::FETCH_OBJ);
 
         if ($onlyIds) {
+            $ids = array();
+
+            foreach ($featured as $post) {
+                $ids[] = $post->id;
+            }
+
             return $ids;
         } else {
             return $featured;
         }
     }
 
-    public static function getStream($page = 1) {
+    public static function getStream($search, $page = 1) {
         $Db        = self::getInstance();
-        $ids       = self::getFeatured(true);
-        $condition = count($ids) > 0 ? 'WHERE id NOT IN ('.implode(',', $ids).')' : '';
-        $sql       = sprintf("SELECT * FROM post $condition ORDER BY date DESC LIMIT %d, %d",(Config::pageSize * ($page - 1)), Config::pageSize);
+        $ids       = self::getFeatured($search, true);
+        $filter    = sprintf("title LIKE '%%%s%%' AND content LIKE '%%%s%%'", $search, $search);
+        $condition = count($ids) > 0 ? 'WHERE id NOT IN ('.implode(',', $ids).') AND ' . $filter : 'WHERE ' . $filter;
+        $sql       = sprintf("SELECT * FROM post %s ORDER BY date DESC LIMIT %d, %d", $condition, (Config::pageSize * ($page - 1)), Config::pageSize);
         $posts     = $Db->query($sql);
 
         if ($posts) {

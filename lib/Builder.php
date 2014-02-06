@@ -38,7 +38,9 @@ class Builder {
                 $post->social += Social::getTW($post->link);
 
                 /* Add tags */
-                var_dump(Tagger::tokenize($post->title . ' ' . $post->content));
+                $T = new Tagger();
+                var_dump($T->tokenize($post->title, 2));
+                var_dump($T->tokenize($post->content));
 
                 /* save content */
                 if ($post->content != '') {

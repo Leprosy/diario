@@ -1,7 +1,7 @@
 <?php 
 
 class Tagger {
-
+    public $map = array();
     static private $stopWords = array(
         "a",
         "acuerdo",
@@ -340,9 +340,12 @@ class Tagger {
         return $token;
     }
 
-    public static function tokenize($text) {
+    public function delete() {
+        $this->map = array();
+    }
+
+    public function tokenize($text, $weight = 1) {
         $text = split(' ', str_replace(self::$chars, ' ', $text));
-        $map = array();
         $total = count($text);
 
         for ($i = 0; $i < $total; ++$i) {
@@ -353,17 +356,17 @@ class Tagger {
                 unset($text[$i]);
             } else {
                 // Insert token in list
-                if ($tmp = self::tokenExists($tok, array_keys($map))) {
-                    $map[$tmp] = $map[$tmp] + 1;
+                if ($tmp = self::tokenExists($tok, array_keys($this->map))) {
+                    $this->map[$tmp] = $this->map[$tmp] + $weight;
                 } else {
-                    $map[$tok] = 1;
+                    $this->map[$tok] = $weight;
                 }
             }
         }
 
         // Sort keys
-        arsort($map);
+        arsort($this->map);
 
-        return $map;
+        return $this->map;
     }
 }
