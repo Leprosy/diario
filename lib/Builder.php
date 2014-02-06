@@ -43,7 +43,7 @@ class Builder {
                 $T = new Tagger();
                 $T->tokenize($post->title, 2);
                 $T->tokenize($text);
-                var_dump($T->getTags());
+                //var_dump($T->getTags());
 
                 /* save content */
                 if ($post->content != '') {
