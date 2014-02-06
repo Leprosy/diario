@@ -22,12 +22,14 @@ class Builder {
             $RSS->init();
 
             foreach ($RSS->get_items() as $item) {
+                $text = strip_tags($item->get_content());
+
                 $post          = new stdClass();
                 $post->date    = (strtotime($item->get_date()));
                 $post->title   = ($item->get_title());
                 $post->source  = ($name);
                 $post->link    = current(explode('?', $item->get_link()));
-                $post->content = Html::words(strip_tags($item->get_content()), 70);
+                $post->content = Html::words($text, 70);
                 $post->thumb   = self::scrapImg($post->link);
 
                 /* Calculating social weight */
@@ -39,8 +41,9 @@ class Builder {
 
                 /* Add tags */
                 $T = new Tagger();
-                var_dump($T->tokenize($post->title, 2));
-                var_dump($T->tokenize($post->content));
+                $T->tokenize($post->title, 2);
+                $T->tokenize($text);
+                var_dump($T->getTags());
 
                 /* save content */
                 if ($post->content != '') {

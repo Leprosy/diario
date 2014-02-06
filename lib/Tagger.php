@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 class Tagger {
-    public $map = array();
+    private $map = array();
     static private $stopWords = array(
         "a",
         "acuerdo",
@@ -320,16 +320,13 @@ class Tagger {
         "net",
         "org"
     );
-    static private $chars = array('.', ',', ':', ';', '-', '_', '/', '"', '\'', '\\', '!',
-                                  '#', '$', '%', '&', '(', ')', '=', '+', '¿', '?', '¡',
-                                  '*', '[', ']', '{', '}' ,'@', '°', '“', '”', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
 
     static private function tokenExists($tok, $list) {
         $token = false;
         $max = 100;
 
         foreach ($list as $i => $item) {
-            $ratio = round(100 * levenshtein($tok, $item) / max(strlen($tok), strlen($item)));
+            $ratio = round(100 * levenshtein($tok, $item) / max(mb_strlen($tok, 'UTF-8'), mb_strlen($item, 'UTF-8')));
 
             if ($ratio < 40 && $ratio < $max) {
                 $token = $item;
@@ -344,15 +341,19 @@ class Tagger {
         $this->map = array();
     }
 
+    public function getTags() {
+        return $this->map;
+    }
+
     public function tokenize($text, $weight = 1) {
-        $text = split(' ', str_replace(self::$chars, ' ', $text));
+        $text = split(' ', preg_replace("/[^a-záéíóúüñ\s]+/i", " ", $text));
         $total = count($text);
 
         for ($i = 0; $i < $total; ++$i) {
-            $tok = strtolower($text[$i]);
+            $tok = trim(strtolower($text[$i]));
 
             // Discard token
-            if (strlen($tok) < 2 || in_array($tok, self::$stopWords)) {
+            if (mb_strlen($tok, 'UTF-8') < 3 || in_array($tok, self::$stopWords)) {
                 unset($text[$i]);
             } else {
                 // Insert token in list
@@ -366,7 +367,5 @@ class Tagger {
 
         // Sort keys
         arsort($this->map);
-
-        return $this->map;
     }
 }
