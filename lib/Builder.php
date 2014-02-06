@@ -17,7 +17,7 @@ class Builder {
 
         /* Read the feeds */
         foreach (self::$feeds as $name => $url) {
-            echo "<hr>" . $name . "\n";
+            echo "\n\n===\nFuente: " . $name . "\n===\n\n";
             $RSS->set_feed_url($url);
             $RSS->init();
 
@@ -51,7 +51,7 @@ class Builder {
                     echo Db::savePost($post) . "\n";
                 }
 
-                echo "<hr>";
+                echo "\n";
             }
         }
     }
