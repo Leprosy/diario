@@ -79,7 +79,7 @@
                     if ($win.height() + $win.scrollTop() == $(document).height()) {
                         $('#infobox').fadeIn();
 
-                        $.get('index.php?page=' + (++page), function (data){
+                        $.get('index.php?<?php if ($search) : ?>search=<?php echo $search ?>&<?php endif; ?>page=' + (++page), function (data){
                             $data = $(data);
                             $('#normal').append($data);
                             $('#infobox').fadeOut();
