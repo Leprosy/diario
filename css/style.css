@@ -208,10 +208,6 @@ a.more {
 }
 
 @media(min-width:1200px) {
-    body {
-        font-size: 105%;
-    }
-
     #page {
         width: 70%;
     }
