@@ -16,9 +16,11 @@
         <div id="page">
 
             <header>
-                <p><a href="http://diario.l3pro.com/">El Diario</a> - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?></p>
-                <div class="search">
-                    <input id="search" type="text" autocomplete="off" placeholder="Buscar..." value="<?php echo $search ?>" />
+                <div class="wrap">
+                    <p><a href="http://diario.l3pro.com/">El Diario</a> - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?></p>
+                    <div class="search">
+                        <input id="search" type="text" autocomplete="off" placeholder="Buscar..." value="<?php echo $search ?>" />
+                    </div>
                 </div>
             </header>
 

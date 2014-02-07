@@ -95,13 +95,19 @@ a.more {
     padding: 1em;
 }
 #page {
+    position: relative;
+    width: 100%;
 }
 #page header {
-    position: relative;
-    padding: 1em;
+    position: fixed;
+    width:inherit;
     color: #fff;
     background-color: #000;
     border-bottom: 2px solid #555;
+    box-shadow: 0 0.2em 0.5em #000;
+}
+#page header .wrap {
+    padding: 1em;
 }
 #page header .search {
     position: absolute;
@@ -164,12 +170,12 @@ a.more {
     font-weight: bold;
 }
 #big article.main {
+    padding-top: 3.4em;
     font-size: 120%;
 }
 #big article.main p.meta {
     font-size: 70%;
 }
-
 
 #normal .feat {
     font-size: 110%;
