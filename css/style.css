@@ -114,6 +114,14 @@ a.more {
     padding: 0.3em 0.5em;
     width: 8em;
 }
+#page header a {
+    font-size: 105%;
+    color: #fff;
+    font-weight: bold;
+}
+#page header a:hover {
+    text-decoration: none;
+}
 #page footer {
     color: #fff;
     background-color: #000;
@@ -168,6 +176,12 @@ a.more {
 }
 #normal .feat h1 {
     font-weight: bold;
+}
+#normal h2 {
+    padding: 5em 0;
+    font-size: 115%;
+    font-weight: bold;
+    text-align: center;
 }
 #normal article:last-child {
     margin-bottom: 0;

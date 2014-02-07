@@ -16,7 +16,7 @@
         <div id="page">
 
             <header>
-                <p><b>El Diario</b> - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?></p>
+                <p><a href="http://diario.l3pro.com/">El Diario</a> - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?></p>
                 <div class="search">
                     <input id="search" type="text" autocomplete="off" placeholder="Buscar..." value="<?php echo $search ?>" />
                 </div>
@@ -52,15 +52,17 @@
             </section>
             <?php endif; ?>
 
-            <?php if (count($stream)) : ?>
             <section id="normal">
+            <?php if (count($stream)) : ?>
                 <?php foreach($stream as $post) : ?>
                 <?php include('tpl/article.php') ?>
                 <?php endforeach; ?>
 
                 <?php include('tpl/ad.php') ?>
-            </section>
+            <?php else: ?>
+                <h2>No se encontraron noticias...</h2>
             <?php endif; ?>
+            </section>
 
             <footer>
                 (C)<?php echo date('Y') ?> Leprosystems
