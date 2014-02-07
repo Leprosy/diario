@@ -64,9 +64,9 @@
             <?php endif; ?>
             </section>
 
-            <footer>
+            <!-- <footer>
                 (C)<?php echo date('Y') ?> Leprosystems
-            </footer>
+            </footer> -->
         </div>
 
         <div id="infobox">Trayendo más noticias...</div>
