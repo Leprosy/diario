@@ -9,21 +9,21 @@
         <link rel="icon" href="img/icon.png" type="image/x-icon" />
         <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
         <script src="js/jquery.js"></script>
+
         <?php include('track.php') ?>
     </head>
 
     <body>
-        <div id="page">
-
-            <header>
-                <div class="wrap">
-                    <p><a href="http://diario.l3pro.com/">El Diario</a> - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?></p>
-                    <div class="search">
-                        <input id="search" type="text" autocomplete="off" placeholder="Buscar..." value="<?php echo $search ?>" />
-                    </div>
+        <header>
+            <div class="wrap">
+                <p><a href="http://diario.l3pro.com/">El Diario</a> - <?php echo date('d') ?> de <?php echo Html::month(date('m') * 1) ?></p>
+                <div class="search">
+                    <input id="search" type="text" autocomplete="off" placeholder="Buscar..." value="<?php echo $search ?>" />
                 </div>
-            </header>
+            </div>
+        </header>
 
+        <div id="page">
             <?php if (count($feat)) : ?>
             <section id="big">
                 <article class="main" onclick="window.open('<?php echo $feat[0]->link ?>')">
@@ -54,7 +54,7 @@
             </section>
             <?php endif; ?>
 
-            <section id="normal">
+            <section id="normal" data-columns>
             <?php if (count($stream)) : ?>
                 <?php foreach($stream as $post) : ?>
                 <?php include('tpl/article.php') ?>
