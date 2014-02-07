@@ -14,7 +14,7 @@ class Db {
 
     public static function getFeatured($search, $onlyIds = false) {
         $Db  = self::getInstance();
-        $sql = sprintf("SELECT * FROM post WHERE date >= %d AND title LIKE '%%%s%%' AND content LIKE '%%%s%%' ORDER BY social DESC LIMIT 4", (time() - 3600), $search, $search);
+        $sql = sprintf("SELECT * FROM post WHERE date >= %d AND title LIKE '%%%s%%' AND content LIKE '%%%s%%' ORDER BY social DESC LIMIT 4", (time() - 5600), $search, $search);
 
         $featured = $Db->query($sql)->fetchAll(PDO::FETCH_OBJ);
 

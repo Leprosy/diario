@@ -104,7 +104,7 @@ a.more {
     color: #fff;
     background-color: #000;
     border-bottom: 2px solid #555;
-    box-shadow: 0 0.2em 0.5em #000;
+    box-shadow: 0 0.2em 0.2em #000;
 }
 #page header .wrap {
     padding: 1em;
@@ -136,12 +136,17 @@ a.more {
 }
 
 #page article {
+    cursor: pointer;
     padding: 1.5em;
     margin-bottom: 0.5em;
     line-height: 1.4em;
-    background-color: #fff;
+    background-color: #eee;
     box-shadow: 0 0.2em 0.5em #000;
     overflow: auto;
+    transition: background-color 0.2s;
+}
+#page article:hover {
+    background-color: #fff;
 }
 #page article p {
     color: #444;

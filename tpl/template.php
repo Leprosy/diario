@@ -26,26 +26,26 @@
 
             <?php if (count($feat)) : ?>
             <section id="big">
-                <article class="main">
-                    <h1><a href="<?php echo $feat[0]->link ?>" target="_blank"><?php echo $feat[0]->title ?></a></h1>
+                <article class="main" onclick="window.open('<?php echo $feat[0]->link ?>')">
+                    <h1><?php echo $feat[0]->title ?></h1>
                     <p class="meta">Publicado <?php echo Html::relativeDate($feat[0]->date) ?> vía <b><?php echo $feat[0]->source ?></b></p>
                     <p>
                         <?php if ($feat[0]->thumb) : ?>
                             <img src="<?php echo $feat[0]->thumb ?>" />
                         <?php endif; ?>
-                        <?php echo $feat[0]->content ?> ... <a class="more" href="<?php echo $feat[0]->link ?>" target="_blank">[Leer más]</a>
+                        <?php echo $feat[0]->content ?> ...
                     </p>
                 </article>
 
                 <?php for ($i = 1; $i < count($feat); ++$i) : ?>
-                <article class="sub">
-                    <h1><a href="<?php echo $feat[$i]->link ?>" target="_blank"><?php echo $feat[$i]->title ?></a></h1>
+                <article class="sub" onclick="window.open('<?php echo $feat[$i]->link ?>')">
+                    <h1><?php echo $feat[$i]->title ?></h1>
                     <p class="meta">Publicado <?php echo Html::relativeDate($feat[$i]->date) ?> vía <b><?php echo $feat[$i]->source ?></b></p>
                     <p>
                         <?php if ($feat[$i]->thumb) : ?>
                             <img src="<?php echo $feat[$i]->thumb ?>" />
                         <?php endif; ?>
-                        <?php echo $feat[$i]->content ?> ... <a class="more" href="<?php echo $feat[$i]->link ?>" target="_blank">[Leer más]</a>
+                        <?php echo $feat[$i]->content ?> ...
                     </p>
                 </article>
                 <?php endfor; ?>
