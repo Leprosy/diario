@@ -9,11 +9,7 @@ class Builder {
     );
 
     static public function build() {
-        $old_reporting = error_reporting(error_reporting() & ~E_STRICT);
-
         $RSS = new SimplePie();
-        $RSS->set_cache_location('cache/');
-        $RSS->set_cache_duration(0);
 
         /* Read the feeds */
         foreach (self::$feeds as $name => $url) {
@@ -39,12 +35,6 @@ class Builder {
                 //TW
                 $post->social += Social::getTW($post->link);
 
-                /* Add tags */
-                $T = new Tagger();
-                $T->tokenize($post->title, 2);
-                $T->tokenize($text);
-                //var_dump($T->getTags());
-
                 /* save content */
                 if ($post->content != '') {
                     var_dump($post);
@@ -66,7 +56,8 @@ class Builder {
         preg_match('/og:image"[ ]+content="(.+)"/', $data, $match);
 
         if (isset($match[1])) {
-            $img = preg_replace('/-[0-9]+x[0-9]+/', '', $match[1]);
+            $img = $match[1];
+            //$img = preg_replace('/-[0-9]+x[0-9]+/', '', $match[1]);
 
             if (strpos($img, 'elmostrador.png')===false) {
                 return $img;
