@@ -102,7 +102,7 @@ header {
     color: #fff;
     background-color: #000;
     border-bottom: 2px solid #555;
-    box-shadow: 0 0.2em 0.2em #000;
+    box-shadow: 0 0.3em 0.5em #000;
 }
 header .wrap {
     padding: 1em;
@@ -236,8 +236,8 @@ header a:hover {
     }
 
     header {
-        width: 80%;
-        left: 15%;
+        width: 81%;
+        left: 9.5%;
     }
 }
 
@@ -249,8 +249,12 @@ header a:hover {
 }
 
 @media(min-width:1200px) {
-    #page, header {
+    #page {
         width: 70%;
+    }
+    header {
+        width: 71%;
+        left: 14.5%;
     }
     #page article img {
         max-width: 30%;
