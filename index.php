@@ -4,7 +4,8 @@ include 'lib/Config.php';
 try {
     $pagNum = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $search = isset($_GET['search']) ? $_GET['search'] : '';
-    $file = sprintf("%s_%s_%d", Config::cacheFile, $search, $pagNum);
+    $json = isset($_GET['json']) ? true : false;
+    $file = sprintf("%s_%s_%d%s", Config::cacheFile, $search, $pagNum, $json ? '_json' : '');
 
     /* Is a page requested or the home page */
     if ($pagNum > 1) {
@@ -17,7 +18,7 @@ try {
 
             /* Generate markup */
             foreach ($stream as $post) {
-                include('tpl/article.php');
+                include('tpl/article' . ($json ? '_json': '') . '.php');
             }
 
             /* Save to cache */
@@ -35,7 +36,7 @@ try {
             $stream = Db::getStream($search, $pagNum);
 
             /* Generate markup */
-            include('tpl/template.php');
+            include('tpl/template' . ($json ? '_json': '') . '.php');
 
             /* Save to cache */
             $page = ob_get_clean();
