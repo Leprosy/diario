@@ -1,0 +1,47 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(http://fonts.googleapis.com/css?family=Headland+One);
+
+body {
+    background-color: #ccc;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.pure-g [class *= "pure-u"] {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+h1,h2,h3,h4{
+    font-family: 'Headland One', serif;;
+}
+
+#page {
+    margin-left: auto;
+    margin-right: auto;
+}
+div.post {
+    margin: 0.4em;
+    box-shadow: 0 2px 2px #666;
+    background-color: #fff;
+    padding: 0.4em 0.8em;
+    transition: transform 0.2s;
+}
+div.post:hover {
+    transform: scale(1.02);
+}
+div.post p.meta {
+    color: #666;
+}
+
+@media (min-width: 768px) {
+    #main-header div.post {
+        overflow: auto;
+    }
+    #main-header div.post img {
+        float: left;
+        margin-right: 0.8em;
+        margin-bottom: 0.4em;
+    }
+}
+@media (min-width: 1024px) {
+    #main-header div.post img {
+        max-width: 50%;
+    }
+}
