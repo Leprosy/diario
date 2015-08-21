@@ -1,27 +1,13 @@
 <?php
 require 'vendor/autoload.php';
 
-class Db {
-    static function get() {
-        //REFACTOR THIS PLZ
-        $dsn = "mysql:dbname=diario;host=localhost";
-        $username = "root";
-        $password = "leprosy";
-        $pdo = new \PDO($dsn, $username, $password);
-        $pdo->exec("set names utf8");
-        $db = new \NotORM($pdo);
-        //$db->debug = function($q, $p) { var_dump($q); var_dump($p); };
-        return $db;
-    }
-}
-
 $app = new \Slim\Slim();
 
 //Home
 $app->get("/", function() use ($app) {
     $timeLimit = 43200; // 30mins
     $ids = array();
-    $db = Db::get();
+    $db = \Lib\Db::get();
 
     // Featured
     $featuredPosts = $db->post()
@@ -48,7 +34,7 @@ $app->get("/", function() use ($app) {
 
 //Scrapper
 $app->get("/update", function() use ($app) {
-    $db = Db::get();
+    $db = \Lib\Db::get();
     $sources = array("elmostrador", "latercera", "emol", "el_dinamo"); //"theclinic", "quintopoder", "definido";
     $tw = new \Lib\Extractor();
 

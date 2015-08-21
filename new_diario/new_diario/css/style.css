@@ -29,18 +29,20 @@ div.post:hover {
 div.post p.meta {
     color: #999;
 }
-
 a {
     color: #000;
     text-shadow: 1px 1px 4px #ccc;
     text-decoration: none;
 }
-
 a:hover {
     color: #666;
 }
 
-@media (min-width: 768px) {
+div#secondary-headers img, div#news img {
+    width: 100%;
+}
+
+/* @media (min-width: 768px) {
     #main-header div.post {
         overflow: auto;
     }
@@ -54,4 +56,4 @@ a:hover {
     #main-header div.post img {
         max-width: 50%;
     }
-}
+} */
